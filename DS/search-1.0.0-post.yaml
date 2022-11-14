@@ -1,6 +1,6 @@
   openapi: "3.0.1"
   info:
-    title: "EDS_OPENSEARCH_API"
+    title: "DS_OPENSEARCH_API"
     description: "This is the EUMETSAT Data Store SEARCH API.\nIt implements OGC 13-026r9, OGC 17-047, OGC 17-003, and OGC 17-084. It adheres to the CEOS OpenSearch Best Practices v1.2. \nFor more information on the EO extensions for OpenSearch, visit https://www.ogc.org/standards/opensearch"
     termsOfService: "https://www.eumetsat.int/about-us/terms-use"
     license:
