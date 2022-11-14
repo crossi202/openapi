@@ -1,6 +1,6 @@
   openapi: "3.0.1"
   info:
-    title: "EDS_BROWSE_API"
+    title: "DS_BROWSE_API"
     description: "This is the EUMETSAT Data Store BROWSE API."
     termsOfService: "https://www.eumetsat.int/about-us/terms-use"
     license:
