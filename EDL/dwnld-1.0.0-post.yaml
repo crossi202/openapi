@@ -132,7 +132,7 @@
       get:
         tags:
           - "Download"
-        summary: "Download product´s metadata. When format=json, the response is compliant with OGC 17-003"
+        summary: "Download product´s metadata. When format=json, the response is compliant with OGC 17-003."
         description: "Downloads product´s metadata"
         operationId: "downloadProductsMetadataByID"
         parameters:
@@ -636,7 +636,7 @@
       get:
         tags:
           - "Download"
-        summary: "Download product´s metadata"
+        summary: "Download product´s metadata. When format=json, the response is compliant with OGC 17-003."
         description: "Downloads the product metadata"
         operationId: "downloadMetadataByPlatform"
         parameters:
@@ -732,7 +732,7 @@
       get:
         tags:
           - "Download"
-        summary: "Download product´s metadata"
+        summary: "Download product´s metadata. When format=json, the response is compliant with OGC 17-003."
         description: "Downloads the product metadata"
         operationId: "downloadMetadataByMinute"
         parameters:
