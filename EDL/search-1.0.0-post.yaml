@@ -192,6 +192,13 @@
             schema:
               type: "integer"
           -
+            name: "orbitdir"
+            in: query
+            description: 'eo:orbitDirection: Orbit direction, must be ASCENDING or DESCENDING'
+            required: false
+            schema:
+              type: "string"
+          -
             name: "fire"
             in: "query"
             description: "Fire detected"
