@@ -65,7 +65,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -116,7 +116,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -179,7 +179,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -244,7 +244,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -345,7 +345,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -437,7 +437,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -533,7 +533,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -620,7 +620,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -716,7 +716,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -803,7 +803,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -913,7 +913,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
@@ -1014,7 +1014,7 @@
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
             content: {}
-          500:
+          502:
             description: "The Download API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
             content: {}
         security:
