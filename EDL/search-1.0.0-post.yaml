@@ -243,7 +243,7 @@
             description: "The requested resource was not found."
           405:
             description: "The HTTP method specified in the request is not allowed for this resource."
-          500:
+          502:
             description: "The REST API encountered an internal error that was not foreseen, e.g. because a backend service is down. Error details will be contained in the log files and not be returned to the client."
         security:
           -
