@@ -178,11 +178,9 @@
             description: "Error message, if something went wrong"
     securitySchemes: 
       default: 
-        type: "oauth2"
-        flows: 
-          implicit: 
-            authorizationUrl: "https://test.com"
-            scopes: {}
+        type: apiKey
+        in: header
+        name: apikey
   x-wso2-auth-header: "apikey"
   x-wso2-cors: 
     corsConfigurationEnabled: false
