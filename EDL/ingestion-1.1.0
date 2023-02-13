@@ -1,0 +1,218 @@
+  openapi: "3.0.1"
+  info: 
+    title: "EDL Ingestion API"
+    description: "This document describes the REST interface of the EUMETSAT Data Lake (EDL) Ingestion Service. EDL Ingestion service can be used by authorised Data Producers requesting the ingestion of a SIP Package located in a bucket accessible by the EDL."
+    termsOfService: "https://www.eumetsat.int/terms"
+    contact: 
+      name: "EUMETSAT"
+      url: "https://www.eumetsat.int"
+      email: "edl@eumetsat.int"
+    license: 
+      name: "License: not yet defined. For the time being: confidential and private"
+    version: "1.1.0"
+  servers: 
+    - 
+      url: "https://api.edl.ope.dac.eumetsat.int/data/ingest"
+  security: 
+    - 
+      default: []
+  tags: 
+    - 
+      name: "Ingestion"
+  paths: 
+    /sip: 
+      post: 
+        tags: 
+          - "Ingestion"
+        summary: "Ingest a product packaged as a Submission Information Package (SIP)"
+        operationId: "sipIngestionUsingPOST"
+        requestBody: 
+          description: "body"
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/EdlIngest"
+          required: true
+        responses: 
+          202: 
+            description: "ACCEPTED"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlSuccessResponse"
+          400: 
+            description: "Bad request"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          401: 
+            description: "Unauthorized"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          404: 
+            description: "SIP file not found"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          500: 
+            description: "Internal Server Error"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+        security: 
+          - 
+            default: []
+        x-codegen-request-body-name: "body"
+        x-auth-type: "Application & Application User"
+        x-throttling-tier: "Unlimited"
+        x-wso2-application-security: 
+          security-types: 
+            - "api_key"
+          optional: false
+      patch: 
+        tags: 
+          - "Update Quicklook"
+        summary: "Updates the quicklook image for an existing Submission Information Package (SIP)"
+        operationId: "quicklookIngestionUsingPATCH"
+        requestBody: 
+          description: "body"
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/EdlPatchQuicklook"
+          required: true
+        responses: 
+          202: 
+            description: "ACCEPTED"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlSuccessResponse"
+          400: 
+            description: "Bad request"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          401: 
+            description: "Unauthorized"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          404: 
+            description: "Quicklook not found"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+          500: 
+            description: "Internal Server Error"
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/EdlFailureResponse"
+        security: 
+          - 
+            default: []
+        x-codegen-request-body-name: "body"
+        x-auth-type: "Application & Application User"
+        x-throttling-tier: "Unlimited"
+        x-wso2-application-security: 
+          security-types: 
+            - "api_key"
+          optional: false
+  components: 
+    schemas: 
+      EdlIngest: 
+        required: 
+          - "sipUri"
+        type: "object"
+        properties: 
+          sipUri: 
+            type: "string"
+            description: "URI of the SIP product in Virtual Hosted Style Request format"
+            format: "uri"
+            example: "https://<bucket>.s3.<region>.<host>/collection-1/MSG-1.5-RSS-HRIT_201710200905_201710200910.zip"
+          md5: 
+            type: "string"
+            description: "MD5 checksum of the SIP file referenced with the parameter sipUri"
+            example: "98ff10b54bf6d05b377a3f1a057c1c11"
+      EdlPatchQuicklook: 
+        required: 
+          - "browseURI"
+          - "productCollection"
+          - "productID"
+        type: "object"
+        properties: 
+          browseURI: 
+            type: "string"
+            description: "URI of the quicklook in Virtual Hosted Style Request format"
+            format: "uri"
+            example: "https://<bucket>.s3.<region>.<host>/<bucket-prefix>/browse.jpg"
+          productCollection: 
+            type: "string"
+            description: "the collection of the already ingested product to which the quick look belongs to"
+            example: "EO:EUM:DAT:METOP:SOMO25"
+          productID: 
+            type: "string"
+            description: "the ID of the already ingested product to which the quick look belongs to"
+            example: "ASCA_SMO_02_M01_20190101003000Z_20190101021456Z_N_O_20190101012049Z"
+      EdlSuccessResponse: 
+        type: "object"
+        properties: 
+          productUuid: 
+            type: "string"
+            description: "Unique ingestion identifier, if product was accepted"
+            format: "uuid"
+      EdlFailureResponse: 
+        type: "object"
+        properties: 
+          message: 
+            type: "string"
+            description: "Error message, if something went wrong"
+    securitySchemes: 
+      default: 
+        type: "oauth2"
+        flows: 
+          implicit: 
+            authorizationUrl: "https://test.com"
+            scopes: {}
+  x-wso2-auth-header: "apikey"
+  x-wso2-cors: 
+    corsConfigurationEnabled: false
+    accessControlAllowOrigins: 
+      - "*"
+    accessControlAllowCredentials: false
+    accessControlAllowHeaders: 
+      - "authorization"
+      - "Access-Control-Allow-Origin"
+      - "Content-Type"
+      - "SOAPAction"
+    accessControlAllowMethods: 
+      - "GET"
+      - "PUT"
+      - "POST"
+      - "DELETE"
+      - "PATCH"
+      - "OPTIONS"
+  x-wso2-production-endpoints: 
+    urls: 
+      - "http://olda-ingestion-gateway-normal.data-lake:8080"
+    type: "http"
+  x-wso2-sandbox-endpoints: 
+    urls: 
+      - "http://olda-ingestion-gateway-normal.data-lake:8080"
+    type: "http"
+  x-wso2-basePath: "/ingest/1.1.0"
+  x-wso2-transports: 
+    - "http"
+    - "https"
+  x-wso2-response-cache: 
+    enabled: false
+    cacheTimeoutInSeconds: 300
